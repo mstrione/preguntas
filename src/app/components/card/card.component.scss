@@ -1,0 +1,61 @@
+:host {
+    display: inline-block;
+    perspective: 600px;
+    padding: 5px;
+}
+
+.card {
+    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 300px;
+    width: 200px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    border: 5px solid #b793d2;
+}
+
+.cardText {
+    position: absolute;
+    text-align: center;
+    background: #392548c7;
+    width: 100%;
+    bottom: 40px;
+    padding: 10px 0;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 18px;
+}
+
+.face {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    backface-visibility: hidden;
+
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: inherit;
+    }
+}
+
+.front {
+    transform: rotateY(180deg);
+    background: #503961;
+    width: fit-content;
+}
+
+.cardNumber {
+    font-family: "Alfa Slab One", cursive;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 45%;
+    font-size: 80px;
+    color: #b793d2;
+}
+
+

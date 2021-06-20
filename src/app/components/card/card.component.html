@@ -1,0 +1,10 @@
+<div class="card" (click)="cardClicked()" [@cardFlip]="data.state">
+    <div class="face back">
+        <span class="cardNumber">{{cardNumber}}</span>
+        <img src="assets/card-back.jpg">
+    </div>
+    <div class="face front">
+        <div class="cardText">{{text}}</div>
+        <img class="cardImage" src="assets/cards/{{id}}.png">      
+    </div>
+</div>

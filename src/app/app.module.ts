@@ -13,16 +13,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BoardComponent } from './components/board/board.component';
+import { CardComponent } from './components/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    BoardComponent
+    BoardComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { BoardComponent } from './components/board/board.component';
     MatMenuModule,
     MatTableModule,
     MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
