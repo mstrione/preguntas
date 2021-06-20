@@ -14,7 +14,7 @@ export class QuestionsService {
 }
 
 public getJSON(): Observable<any> {
-    return this.http.get("../../assets/default.json");
+    return this.http.get("./../../assets/default.json");
 }
 
 }
