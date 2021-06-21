@@ -12,13 +12,14 @@
     cursor: pointer;
     position: relative;
     transform-style: preserve-3d;
-    border: 5px solid #b793d2;
+    border: 5px solid #41b2cc;
+    
 }
 
 .cardText {
     position: absolute;
     text-align: center;
-    background: #392548c7;
+    background: #346079c7;
     width: 100%;
     bottom: 40px;
     padding: 10px 0;
@@ -31,20 +32,18 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: inherit;
     backface-visibility: hidden;
 
     > img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        border-radius: inherit;
     }
 }
 
 .front {
     transform: rotateY(180deg);
-    background: #503961;
+    background: #b2f1ff;
 }
 
 .cardNumber {
