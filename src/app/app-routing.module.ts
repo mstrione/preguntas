@@ -4,6 +4,7 @@ import { BoardComponent } from './components/board/board.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'board/es' },
+  { path: 'board', component: BoardComponent },
   { path: 'board/:lang', component: BoardComponent },
 ];
 
