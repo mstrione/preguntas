@@ -13,11 +13,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  reload() {
-    console.log('holis');
-    this.router.navigate(['/board']);
-  }
-
   reloadCurrentPage() {
     window.location.reload();
    }

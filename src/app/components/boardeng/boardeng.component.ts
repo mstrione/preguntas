@@ -3,11 +3,11 @@ import { QuestionsService } from 'src/app/services/questions.service';
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  selector: 'app-boardeng',
+  templateUrl: './boardeng.component.html',
+  styleUrls: ['./boardeng.component.scss']
 })
-export class BoardComponent implements OnInit {
+export class BoardengComponent implements OnInit {
 
   cards: any;
   lang: string | any;
@@ -17,7 +17,7 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
 
     //this.lang = this.route.snapshot.paramMap.get('lang');
-    this.lang = 'es';
+    this.lang = 'en';
 
     this.questionsService.getJSON(this.lang).subscribe(data => {
       console.log(data);
