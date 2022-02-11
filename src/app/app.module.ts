@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import  {MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatTableModule,
     MatCheckboxModule,
+    MatButtonToggleModule,
     HttpClientModule
   ],
   providers: [],

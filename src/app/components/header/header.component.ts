@@ -18,4 +18,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/board']);
   }
 
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
 }

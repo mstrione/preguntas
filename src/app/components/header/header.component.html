@@ -1,18 +1,26 @@
 <mat-toolbar color="primary" class="app-toolbar">
-    <mat-toolbar-row>
-      <span>Nosy Questions </span>
-      <span class="version">Beta 1.0</span>
+  <mat-toolbar-row>
+    <span>Nosy Questions </span>
+    <span class="version">Beta 1.0</span>
 
-      <diV class="donate">
-        Support this software
-        <a mat-flat-button color="accent"
-          href="https://www.paypal.com/donate?hosted_button_id=QMTCSHV5RNS8C"
-          target="_blank">Donate with PayPal</a>
-      </diV>
+    <diV class="donate">
+      Support this software
+      <a mat-flat-button color="accent" href="https://www.paypal.com/donate?hosted_button_id=QMTCSHV5RNS8C"
+        target="_blank">Donate with PayPal</a>
+    </diV>
 
-        <a href="#" mat-icon-button class="icon">
-          <mat-icon>restart_alt</mat-icon>
-        </a>
+    <span class="example-spacer"></span>
 
-    </mat-toolbar-row>
-  </mat-toolbar>
+    <a (click)="reloadCurrentPage()" mat-icon-button class="icon">
+      <mat-icon>restart_alt</mat-icon>
+    </a>
+
+    <section>
+      <div class="example-button-row">
+        <a mat-button href="board/es">Español</a>
+        <a mat-button href="board/en">English</a>
+      </div>
+    </section>
+
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionsService } from 'src/app/services/questions.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-board',
@@ -9,12 +10,15 @@ import { QuestionsService } from 'src/app/services/questions.service';
 export class BoardComponent implements OnInit {
 
   cards: any;
-
-  constructor(private questionsService : QuestionsService) {}
+  lang: string | any;
+  
+  constructor(private questionsService : QuestionsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
 
-    this.questionsService.getJSON().subscribe(data => {
+    this.lang = this.route.snapshot.paramMap.get('lang')
+
+    this.questionsService.getJSON(this.lang).subscribe(data => {
       console.log(data);
       this.cards = this.shuffleArray(data);
     });
