@@ -18,7 +18,6 @@ import  {MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BoardengComponent } from './components/boardeng/boardeng.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { BoardengComponent } from './components/boardeng/boardeng.component';
     HeaderComponent,
     FooterComponent,
     BoardComponent,
-    CardComponent,
-    BoardengComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,

@@ -16,8 +16,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //this.lang = this.route.snapshot.paramMap.get('lang');
-    this.lang = 'es';
+    this.lang = this.route.snapshot.paramMap.get('lang');
 
     this.questionsService.getJSON(this.lang).subscribe(data => {
       console.log(data);
