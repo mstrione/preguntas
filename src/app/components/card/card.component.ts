@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { CardData } from 'src/app/model/cardData';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'comp-card',
@@ -34,9 +35,14 @@ export class CardComponent implements OnInit {
     state: "default"
   };
 
-  constructor() { }
+  gameId: string | any;
+  lang: string | any;
+
+  constructor( private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.gameId = this.route.snapshot.paramMap.get('gameId');
+    this.lang = this.route.snapshot.paramMap.get('lang');
   }
 
   cardClicked() {

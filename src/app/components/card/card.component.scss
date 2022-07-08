@@ -12,8 +12,15 @@
     cursor: pointer;
     position: relative;
     transform-style: preserve-3d;
-    border: 5px solid #41b2cc;
-    
+    border: 5px solid #ffeb90;
+}
+
+.card.defaultState {
+    border: 5px solid #ffeb90;
+}
+
+.card.flippedState {
+    border: 5px solid #ffffff;
 }
 
 .cardText {
@@ -56,4 +63,27 @@
     color: #ffffff;
 }
 
+.game01 .cardNumber {
+    color: #ffeb88;
+}
+
+.game02 .cardNumber {
+    font-family: 'Roboto';
+    top: 86%;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+.game02 .cardText {
+    display: none;
+}
+
+.card.game02.card.defaultState {
+    border-color: #5e5e5e;
+}
+
+.card.game02.card.card.flippedState {
+    border-color: #ffffff;
+}
 

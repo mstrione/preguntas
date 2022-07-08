@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="app-toolbar">
   <mat-toolbar-row>
     <span>Nosy Questions </span>
-    <span class="version">Beta 1.0</span>
+    <span class="version">Beta 1.1</span>
 
     <diV class="donate">
       Support this software
@@ -11,14 +11,18 @@
 
     <span class="example-spacer"></span>
 
+    <a (click)="navigateToGames()" mat-icon-button class="icon">
+      <mat-icon>home</mat-icon>
+    </a>
+
     <a (click)="reloadCurrentPage()" mat-icon-button class="icon">
       <mat-icon>restart_alt</mat-icon>
     </a>
 
     <section>
       <div class="example-button-row">
-        <a mat-button href="board/es">Español</a>
-        <a mat-button href="board/en">English</a>
+        <a mat-button (click)="setLang('es')">Español</a>
+        <a mat-button (click)="setLang('en')">English</a>
       </div>
     </section>
 

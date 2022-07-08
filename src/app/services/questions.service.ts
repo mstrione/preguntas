@@ -13,11 +13,11 @@ export class QuestionsService {
     //});
 }
 
-public getJSON(_lang: undefined): Observable<any> {
+public getJSON(_gameId:undefined, _lang: undefined): Observable<any> {
     if (_lang!=='en') {
-      return this.http.get("./assets/default.json");
+      return this.http.get("./assets/" + _gameId + "/default.json");
     } else {
-      return this.http.get("./assets/default-en.json");
+      return this.http.get("./assets/" + _gameId + "/default-en.json");
     }
     
 }

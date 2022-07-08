@@ -14,10 +14,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import  {MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GamesComponent } from './components/games/games.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
     BoardComponent,
-    CardComponent
+    CardComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatCheckboxModule,
     MatButtonToggleModule,
+    MatCardModule,
+    MatProgressBarModule,
     HttpClientModule
   ],
   providers: [],

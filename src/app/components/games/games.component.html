@@ -1,0 +1,74 @@
+
+<comp-header></comp-header>
+
+<div class="cards-container" *ngIf="lang==='es' || lang===null">
+
+      <mat-card class="card">
+        <img mat-card-image src="../../../assets/board-01.png">
+        <mat-card-title>Preguntas personales</mat-card-title>
+        <mat-card-content>
+          <p>Preguntas personales para conocernos mejor.</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+            <a mat-button href="board/01/es">JUGAR</a>
+        </mat-card-actions>
+        <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    
+      <mat-card class="card">
+        <img mat-card-image src="../../../assets/board-02.png">
+        <mat-card-title>Versus para Geeks</mat-card-title>
+        <mat-card-content>
+          <p>Elije una de las dos opciones y justifica tu respuesta.</p>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+          <a mat-button href="board/02/es">JUGAR</a>
+        </mat-card-actions>
+        <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+    
+</div>
+
+
+
+<div class="cards-container" *ngIf="lang!=='es'">
+
+  <mat-card class="card">
+    <img mat-card-image src="../../../assets/board-01.png">
+    <mat-card-title>Personal questions</mat-card-title>
+    <mat-card-content>
+      <p>andom personal questions to get to know each other better</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+        <a mat-button href="board/01/en">PLAY</a>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+
+
+  <mat-card class="card">
+    <img mat-card-image src="../../../assets/board-02.png">
+    <mat-card-title>Versus for Geeks</mat-card-title>
+    <mat-card-content>
+      <p>Choose one of the two options and justify your answer.</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <a mat-button href="board/02/en">PLAY</a>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+
+</div>
+

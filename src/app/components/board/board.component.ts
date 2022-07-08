@@ -10,15 +10,17 @@ import { ActivatedRoute } from '@angular/router'
 export class BoardComponent implements OnInit {
 
   cards: any;
+  gameId: string | any;
   lang: string | any;
   
   constructor(private questionsService : QuestionsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
 
+    this.gameId = this.route.snapshot.paramMap.get('gameId');
     this.lang = this.route.snapshot.paramMap.get('lang');
 
-    this.questionsService.getJSON(this.lang).subscribe(data => {
+    this.questionsService.getJSON(this.gameId, this.lang).subscribe(data => {
       console.log(data);
       this.cards = this.shuffleArray(data);
     });
