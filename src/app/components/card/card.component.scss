@@ -74,6 +74,21 @@
     font-weight: bold;
 }
 
+.game03 .cardNumber {
+    font-family: 'Roboto';
+    top: 86%;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.game04 .cardText {
+    background: #542413cc;
+    bottom: 0;
+    font-family: "Roboto";
+    font-size: 13px;
+    padding: 2px 0px;
+}
+
 
 .game02 .cardText {
     display: none;
@@ -87,3 +102,6 @@
     border-color: #ffffff;
 }
 
+.card.game03.card.defaultState  {
+    border: 5px solid #1bcff8;
+}

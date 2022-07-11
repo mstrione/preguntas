@@ -1,27 +1,16 @@
 [
     {"id" : 1, "text" : "Windows - MAC OS"},
-    {"id" : 2, "text" : "Windows - Linux"},
-    {"id" : 3, "text" : "Linux - MacOS"},
-    {"id" : 4, "text" : "Macbook - Alienware"},
     {"id" : 5, "text" : "Playstation - XBOX"},
     {"id" : 6, "text" : "Sega - Nintendo"},
     {"id" : 7, "text" : "DC Comics -  Marvel"},
     {"id" : 8, "text" : "Friends - Big bang Theory"},
     {"id" : 9, "text" : "IT Crowd - Silicon Valley"},
-    {"id" : 10, "text" : "Java - .NET"},
-    {"id" : 11, "text" : "Angular - React"},
-    {"id" : 12, "text" : "Material Design - Bootstrap"},
-    {"id" : 13, "text" : "Atlassian JIRA - Microsoft Azure"},
-    {"id" : 14, "text" : "Eclipse - Netbeans"},
-    {"id" : 15, "text" : "Miro - Mural"},
     {"id" : 16, "text" : "Zoom - Teams"},
     {"id" : 17, "text" : "IOS - Android"},
     {"id" : 18, "text" : "FIFA - PES"},
-    {"id" : 19, "text" : "Scrum - Kanban"},
     {"id" : 20, "text" : "Microsoft Office - Google Docs"},
     {"id" : 21, "text" : "Twitter - Facebook"},
     {"id" : 22, "text" : "Twitter - Instagram"},
-    {"id" : 23, "text" : "Eventos - Ceremonias"},
     {"id" : 24, "text" : "Nvidia - AMD"},
     {"id" : 25, "text" : "Intel - AMD"},
     {"id" : 26, "text" : "Age of Empires - Counter Strike"},
@@ -33,7 +22,6 @@
     {"id" : 32, "text" : "Telegram - Whatsapp"},
     {"id" : 33, "text" : "Bitcoin - Ethereum"},
     {"id" : 34, "text" : "Youtube - Twitch"},
-    {"id" : 35, "text" : "SAFe - Spotify Model"},
     {"id" : 36, "text" : "Photoshop - Gimp"},
     {"id" : 37, "text" : "Illustrator - Corel Draw"},
     {"id" : 38, "text" : "Yahoo - Altavista"},
@@ -72,4 +60,3 @@
     {"id" : 71, "text" : "Juego del calamar - Stranger Things"}
 
 ]
-
