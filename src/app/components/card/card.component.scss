@@ -101,6 +101,10 @@
     border-color: #5e5e5e;
 }
 
+.card.game05.card.defaultState {
+    border: 5px solid #6b9dbc;
+}
+
 .card.game02.card.card.flippedState {
     border-color: #ffffff;
 }
@@ -108,3 +112,22 @@
 .card.game03.card.defaultState  {
     border: 5px solid #1bcff8;
 }
+
+.game05 .cardText {
+    position: absolute;
+    text-align: center;
+    background: #000000a3;
+    width: 89%;
+    padding: 5px 5px;
+    font-family: "Caveat Brush", cursive;
+    font-size: 17px;
+    margin: 3% !important;
+    border-radius: 8px;
+    bottom: 0;
+}
+
+.game05 .cardNumber {
+    color: #021c51;
+}
+
+
