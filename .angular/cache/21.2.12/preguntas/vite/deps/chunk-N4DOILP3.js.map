@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../../node_modules/@angular/cdk/fesm2022/_array-chunk.mjs"],
-  "sourcesContent": ["function coerceArray(value) {\n  return Array.isArray(value) ? value : [value];\n}\n\nexport { coerceArray };\n\n"],
-  "mappings": ";AAAA,SAAS,YAAY,OAAO;AAC1B,SAAO,MAAM,QAAQ,KAAK,IAAI,QAAQ,CAAC,KAAK;AAC9C;",
-  "names": []
-}
