@@ -1,132 +1,38 @@
-
 <comp-header></comp-header>
 
-<div class="cards-container" *ngIf="lang==='es' || lang===null">
+<div class="home pu">
+  <div class="home-intro">
+    <span class="eyebrow">✦ {{ lang === 'es' ? 'Elige un mazo' : 'Choose a deck' }}</span>
+    <h1>Nosy Questions</h1>
+    <p class="home-sub">
+      {{ lang === 'es'
+        ? 'Toca las cartas para revelar las preguntas.'
+        : 'Tap the cards to reveal the questions.' }}
+    </p>
+  </div>
 
-      <mat-card class="card">
-        <img mat-card-image src="./assets/board-01.png">
-        <mat-card-title>Preguntas personales</mat-card-title>
-        <mat-card-content>
-          <p>Preguntas personales para conocernos mejor.</p>
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-            <a mat-raised-button color="primary" href="board/01/es">JUGAR</a>
-        </mat-card-actions>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
-    
-      <mat-card class="card">
-        <img mat-card-image src="./assets/board-02.png">
-        <mat-card-title>Versus para Geeks</mat-card-title>
-        <mat-card-content>
-          <p>Elije una de las dos opciones y justifica tu respuesta.</p>
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-          <a mat-raised-button color="primary" href="board/02/es">JUGAR</a>
-        </mat-card-actions>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="card">
-        <img mat-card-image src="./assets/board-03.png">
-        <mat-card-title>Versus para Geeks + Devs</mat-card-title>
-        <mat-card-content>
-          <p>Elije una de las dos opciones y justifica tu respuesta.</p>
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-          <a mat-raised-button color="primary" href="board/03/es">JUGAR</a>
-        </mat-card-actions>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="card">
-        <img mat-card-image src="./assets/board-04.png">
-        <mat-card-title>Preguntas de m.....</mat-card-title>
-        <mat-card-content>
-          <p>Preguntas que rompen amistades, equipos y familias.</p>
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-          <a mat-raised-button color="primary" href="board/04/es">JUGAR</a>
-        </mat-card-actions>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="card">
-        <img mat-card-image src="./assets/board-05.png">
-        <mat-card-title>Te acuerdas cuando.....</mat-card-title>
-        <mat-card-content>
-          <p>Preguntas para revolver el cajón de los recuerdos.</p>
-        </mat-card-content>
-        <mat-divider inset></mat-divider>
-        <mat-card-actions>
-          <a mat-raised-button color="primary" href="board/05/es">JUGAR</a>
-        </mat-card-actions>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-      </mat-card>
-    
+  <div class="deck-grid">
+    @for (deck of decks; track deck.id; let i = $index) {
+      <div class="deck-card" (click)="play(deck)">
+        <div class="deck-cover">
+          <img [src]="boardImg(deck.id)" alt="">
+          <div class="deck-cover-grad"></div>
+          <span class="deck-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+        </div>
+        <div class="deck-body">
+          <span class="deck-tag">{{ deck.tag[lang === 'en' ? 'en' : 'es'] }}</span>
+          <h2>{{ deck[lang === 'en' ? 'en' : 'es'].title }}</h2>
+          <p class="deck-desc">{{ deck[lang === 'en' ? 'en' : 'es'].desc }}</p>
+          <div class="deck-foot">
+            <span class="deck-count">
+              <strong>{{ counts[deck.id] || 0 }}</strong> {{ lang === 'es' ? 'cartas' : 'cards' }}
+            </span>
+            <button class="play-btn" (click)="play(deck); $event.stopPropagation()">
+              {{ lang === 'es' ? 'JUGAR' : 'PLAY' }} →
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
 </div>
-
-<div class="cards-container" *ngIf="lang!=='es' && lang!==null">
-
-  <mat-card class="card">
-    <img mat-card-image src="./assets/board-01.png">
-    <mat-card-title>Personal questions</mat-card-title>
-    <mat-card-content>
-      <p>Random personal questions to get to know each other better</p>
-    </mat-card-content>
-    <mat-divider inset></mat-divider>
-    <mat-card-actions>
-        <a mat-raised-button color="primary" href="board/01/en">PLAY</a>
-    </mat-card-actions>
-    <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </mat-card-footer>
-  </mat-card>
-
-
-  <mat-card class="card">
-    <img mat-card-image src="./assets/board-02.png">
-    <mat-card-title>Versus for Geeks</mat-card-title>
-    <mat-card-content>
-      <p>Choose one of the two options and justify your answer.</p>
-    </mat-card-content>
-    <mat-divider inset></mat-divider>
-    <mat-card-actions>
-      <a mat-raised-button color="primary" href="board/02/en">PLAY</a>
-    </mat-card-actions>
-    <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </mat-card-footer>
-  </mat-card>
-
-  <mat-card class="card">
-    <img mat-card-image src="./assets/board-05.png">
-    <mat-card-title>Do you remember.....</mat-card-title>
-    <mat-card-content>
-      <p>Questions to dig into the drawer of memories.</p>
-    </mat-card-content>
-    <mat-divider inset></mat-divider>
-    <mat-card-actions>
-      <a mat-raised-button color="primary" href="board/05/en">PLAY</a>
-    </mat-card-actions>
-    <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-    </mat-card-footer>
-  </mat-card>
-
-</div>
-

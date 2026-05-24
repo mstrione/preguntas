@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "preguntas-dev",
+      "runtimeExecutable": "/Users/maurostrione/.nvm/versions/node/v24.14.1/bin/node",
+      "runtimeArgs": ["node_modules/@angular/cli/bin/ng.js", "serve", "--port", "4200"],
+      "port": 4200
+    }
+  ]
+}

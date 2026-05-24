@@ -1,10 +1,21 @@
-<div class="card game{{gameId}} {{data.state}}State" (click)="cardClicked()" [@cardFlip]="data.state">
-    <div class="face back">
-        <span class="cardNumber">{{cardNumber}}</span>
-        <img src="./assets/{{gameId}}/card-back.png">
+<div class="scene"
+     [class.is-seen]="seen"
+     (click)="onClick()">
+  <div class="flip-wrap">
+    <div class="flipper" [class.flipped]="seen">
+      <!-- BACK -->
+      <div class="face back">
+        <div class="back-overlay">
+          <span class="num">{{ num }}</span>
+        </div>
+      </div>
+      <!-- FRONT (seen) -->
+      <div class="face face-front" [style.background]="deck.cardBg || deck.backBg">
+        <img class="front-img" [src]="cardImg" alt="">
+        <div class="front-overlay">
+          <div class="check">✓</div>
+        </div>
+      </div>
     </div>
-    <div class="face front">
-        <div class="cardText">{{text}}</div>
-        <img class="cardImage" src="./assets/{{gameId}}/cards/{{id}}.png">      
-    </div>
+  </div>
 </div>

@@ -1,20 +1,9 @@
-p {
-    font-size: 12px;
-    text-align: right;
-    color: rgba(255, 255, 255, 0.5);
-    display: inline-block;
-    vertical-align: middle;
-    height: 40px;
-    margin: 0;
-    padding-right: 20px;
-}
-
-.footer {
-    padding: 10px;
-    text-align: right;
-}
-
-.link {
-    display: inline-block;
-    padding: 4px;
+.nq-footer {
+  text-align: center;
+  padding: 24px var(--pad-x);
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--line-soft);
 }

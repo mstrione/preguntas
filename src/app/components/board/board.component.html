@@ -1,9 +1,61 @@
 <comp-header></comp-header>
-<div class='container'>
-    <comp-card *ngFor="let card of cards; index as i"
-    [id]="card.id"
-    [cardNumber]="i+1"
-    [text]="card.text"
-    ></comp-card>
-</div>
 
+@if (deck) {
+  <div class="game pu">
+    <div class="game-head">
+      <div>
+        <h1>{{ deck[lang === 'en' ? 'en' : 'es'].title }}</h1>
+        <p class="seen-txt">
+          {{ doneN }} {{ lang === 'es' ? 'de' : 'of' }} {{ total }}
+          {{ lang === 'es' ? 'vistas' : 'revealed' }}
+        </p>
+      </div>
+      <button class="reset-btn" (click)="reset()">
+        ↺ {{ lang === 'es' ? 'Reiniciar' : 'Reset' }}
+      </button>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" [style.width.%]="pct"></div>
+    </div>
+
+    @if (doneN === 0) {
+      <p class="hint">
+        {{ lang === 'es' ? 'Toca una carta para revelarla ✦' : 'Tap a card to reveal it ✦' }}
+      </p>
+    }
+
+    <div class="card-grid" [class.flip-reset]="resetting">
+      @for (q of questions; track q.id; let i = $index) {
+        <comp-card
+          [deck]="deck"
+          [num]="i + 1"
+          [qid]="q.id"
+          [seen]="!!seen[q.id]"
+          (expand)="open(i)"></comp-card>
+      }
+    </div>
+
+    @if (total > 0 && doneN === total) {
+      <div class="completed">
+        <div class="emoji">🎉</div>
+        <p class="done-title">{{ lang === 'es' ? '¡Mazo completado!' : 'Deck completed!' }}</p>
+        <p class="done-sub">
+          {{ lang === 'es' ? 'Se revelaron todas las cartas' : 'All cards have been revealed' }}
+        </p>
+        <button class="again-btn" (click)="reset()">
+          {{ lang === 'es' ? 'Jugar de nuevo' : 'Play again' }}
+        </button>
+      </div>
+    }
+  </div>
+
+  @if (expandedIndex !== null) {
+    <comp-card-modal
+      [deck]="deck"
+      [num]="expandedIndex + 1"
+      [question]="questions[expandedIndex]"
+      [lang]="lang"
+      (closed)="close()"></comp-card-modal>
+  }
+}

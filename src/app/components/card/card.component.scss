@@ -1,133 +1,114 @@
 :host {
-    display: inline-block;
-    perspective: 600px;
-    padding: 5px;
+  display: block;
 }
 
-.card {
-    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
-    height: 300px;
-    width: 200px;
-    cursor: pointer;
-    position: relative;
-    transform-style: preserve-3d;
-    border: 5px solid #ffeb90;
+.scene {
+  width: 100%;
+  padding-bottom: 150%;
+  position: relative;
+  cursor: pointer;
 }
 
-.card.defaultState {
-    border: 5px solid #ffeb90;
+.scene.is-seen {
+  cursor: default;
 }
 
-.card.flippedState {
-    border: 5px solid #ffffff;
+.flip-wrap {
+  position: absolute;
+  inset: 0;
+  perspective: 900px;
 }
 
-.cardText {
-    position: absolute;
-    text-align: center;
-    background: #346079c7;
-    width: 100%;
-    bottom: 40px;
-    padding: 10px 0;
-    font-family: 'Caveat Brush', cursive;
-    font-size: 18px;
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(.4, 0, .2, 1);
+}
+
+.flipper.flipped {
+  transform: rotateY(180deg);
+}
+
+.scene:not(.is-seen):active .flipper {
+  transform: scale(0.91);
+  transition: transform 0.08s;
 }
 
 .face {
-    display: block;
-    position: absolute;
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+
+  > img {
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-
-    > img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+    object-fit: cover;
+    display: block;
+  }
 }
 
-.front {
-    transform: rotateY(180deg);
-    background: #b2f1ff;
+.face-front {
+  transform: rotateY(180deg);
+  border: 3px solid var(--accent);
 }
 
-.cardNumber {
-    font-family: "Alfa Slab One", cursive;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 48%;
-    font-size: 60px;
-    color: #ffffff;
+.back {
+  background: #06080f url('/assets/mesh.svg') center / cover no-repeat;
 }
 
-.game01 .cardNumber {
-    color: #ffeb88;
+.back-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.5) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.game02 .cardNumber {
-    font-family: 'Roboto';
-    top: 86%;
-    font-size: 40px;
-    font-weight: bold;
+.num {
+  font-family: var(--mono);
+  font-size: clamp(34px, 9vw, 64px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
 }
 
-.game03 .cardNumber {
-    font-family: 'Roboto';
-    top: 86%;
-    font-size: 40px;
-    font-weight: bold;
+.front-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.32;
 }
 
-.game04 .cardText {
-    background: #542413cc;
-    bottom: 0;
-    font-family: "Roboto";
-    font-size: 13px;
-    padding: 2px 0px;
+.front-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
 }
 
-.game02 .cardText {
-    display: none;
+.check {
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--bg);
+  font-weight: 700;
 }
-
-.game03 .cardText {
-    display: none;
-}
-
-.card.game02.card.defaultState {
-    border-color: #5e5e5e;
-}
-
-.card.game05.card.defaultState {
-    border: 5px solid #6b9dbc;
-}
-
-.card.game02.card.card.flippedState {
-    border-color: #ffffff;
-}
-
-.card.game03.card.defaultState  {
-    border: 5px solid #1bcff8;
-}
-
-.game05 .cardText {
-    position: absolute;
-    text-align: center;
-    background: #000000a3;
-    width: 89%;
-    padding: 5px 5px;
-    font-family: "Caveat Brush", cursive;
-    font-size: 17px;
-    margin: 3% !important;
-    border-radius: 8px;
-    bottom: 0;
-}
-
-.game05 .cardNumber {
-    color: #021c51;
-}
-
-

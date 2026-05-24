@@ -1,0 +1,36 @@
+<div class="modal-overlay" (click)="close()">
+  <div class="modal-backdrop"></div>
+
+  <div class="close-hint">{{ lang === 'es' ? '× cerrar' : '× close' }}</div>
+
+  <div class="modal-card" [class.out]="out"
+       [style.width.px]="w" [style.height.px]="h"
+       (click)="$event.stopPropagation()">
+    <div class="modal-scene" [style.height.px]="h">
+      <div class="modal-flipper" [class.flipped]="flipped" (click)="close()">
+
+        <!-- BACK -->
+        <div class="modal-face back">
+          <div class="back-grad"></div>
+          <div class="back-num">
+            <span>#{{ num }}</span>
+          </div>
+        </div>
+
+        <!-- FRONT -->
+        <div class="modal-face modal-face-front"
+             [style.background]="deck.cardBg || deck.backBg">
+          <img class="front-img" [src]="cardImg" alt="">
+
+          @if (!deck.hideText) {
+            <div class="front-text">
+              <p class="q">{{ question.text }}</p>
+              <p class="hint">{{ lang === 'es' ? 'Toca para cerrar' : 'Tap to close' }}</p>
+            </div>
+          }
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

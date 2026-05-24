@@ -1,55 +1,26 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
-import { CardData } from 'src/app/model/cardData';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { DeckMeta, backImg, cardImg } from '../../data/decks';
 
 @Component({
   selector: 'comp-card',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
-  animations: [
-    trigger('cardFlip', [
-      state('default', style({
-        transform: 'none'
-      })),
-      state('flipped', style({
-        transform: 'rotateY(180deg)'
-      })),
-      transition('default => flipped', [
-        animate('400ms')
-      ]),
-      transition('flipped => default', [
-        animate('200ms')
-      ])
-    ])
-  ]
+  styleUrls: ['./card.component.scss']
 })
+export class CardComponent {
+  @Input() deck!: DeckMeta;
+  @Input() num = 0;
+  @Input() qid = 0;
+  @Input() seen = false;
 
-export class CardComponent implements OnInit {
-  @Input() cardNumber: number | undefined;
-  @Input() id: number | undefined;
-  @Input() text: string | undefined;
-  
-  data: CardData = {
-    imageId: "pDGNBK9A0sk",
-    state: "default"
-  };
+  @Output() expand = new EventEmitter<void>();
 
-  gameId: string | any;
-  lang: string | any;
+  get backImg(): string { return backImg(this.deck.id); }
+  get cardImg(): string { return cardImg(this.deck.id, this.qid); }
 
-  constructor( private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    this.gameId = this.route.snapshot.paramMap.get('gameId');
-    this.lang = this.route.snapshot.paramMap.get('lang');
-  }
-
-  cardClicked() {
-    if (this.data.state === "default") {
-      this.data.state = "flipped";
-    } else {
-      this.data.state = "default";
-    }
+  onClick(): void {
+    if (!this.seen) { this.expand.emit(); }
   }
 }

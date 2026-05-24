@@ -1,30 +1,36 @@
-<mat-toolbar color="primary" class="app-toolbar">
-  <mat-toolbar-row>
-    <span>Nosy Questions </span>
-    <span class="version">Beta 1.1</span>
+<header class="nq-header">
+  <button class="logo" (click)="goHome()">
+    <span class="logo-1">Nosy</span>
+    <span class="logo-2">Questions</span>
+    <span class="logo-v">2.0</span>
+  </button>
 
-    <diV class="donate">
-      Support this software
-      <a mat-flat-button color="accent" href="https://www.paypal.com/donate?hosted_button_id=QMTCSHV5RNS8C"
-        target="_blank">Donate with PayPal</a>
-    </diV>
+  <div class="spacer"></div>
 
-    <span class="example-spacer"></span>
-
-    <a (click)="navigateToGames()" mat-icon-button class="icon">
-      <mat-icon>home</mat-icon>
+  <div class="donate">
+    <span class="donate-label">{{ lang === 'es' ? 'Apoya este software' : 'Support this software' }}</span>
+    <a class="donate-btn"
+       href="https://www.paypal.com/donate?hosted_button_id=QMTCSHV5RNS8C"
+       target="_blank" rel="noopener">
+      {{ lang === 'es' ? 'Donar con PayPal' : 'Donate with PayPal' }}
     </a>
+  </div>
 
-    <a (click)="reloadCurrentPage()" mat-icon-button class="icon">
-      <mat-icon>restart_alt</mat-icon>
-    </a>
+  <div class="lang-toggle">
+    <button [class.on]="lang === 'es'" (click)="setLang('es')">ES</button>
+    <span class="sep">/</span>
+    <button [class.on]="lang === 'en'" (click)="setLang('en')">EN</button>
+  </div>
 
-    <section>
-      <div class="example-button-row">
-        <a mat-button (click)="setLang('es')">Español</a>
-        <a mat-button (click)="setLang('en')">English</a>
-      </div>
-    </section>
+  <button class="theme-toggle"
+          (click)="theme.toggle()"
+          [attr.aria-label]="theme.theme === 'light' ? 'Modo oscuro' : 'Modo claro'">
+    <span class="dot"></span>
+  </button>
 
-  </mat-toolbar-row>
-</mat-toolbar>
+  @if (screen === 'game') {
+    <button class="back-btn" (click)="goHome()">
+      ← {{ lang === 'es' ? 'Mazos' : 'Decks' }}
+    </button>
+  }
+</header>

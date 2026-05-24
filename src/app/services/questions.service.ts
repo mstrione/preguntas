@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,19 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class QuestionsService {
 
-  constructor(private http: HttpClient) {
-    //this.getJSON().subscribe(data => {
-    //    console.log(data);
-    //});
-}
+  constructor(private http: HttpClient) {}
 
-public getJSON(_gameId:undefined, _lang: undefined): Observable<any> {
-    if (_lang!=='en') {
-      return this.http.get("./assets/" + _gameId + "/default.json");
+  public getJSON(gameId: string, lang: string): Observable<any> {
+    if (lang !== 'en') {
+      return this.http.get('./assets/' + gameId + '/default.json');
     } else {
-      return this.http.get("./assets/" + _gameId + "/default-en.json");
+      return this.http.get('./assets/' + gameId + '/default-en.json');
     }
-    
-}
+  }
 
 }

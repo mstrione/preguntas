@@ -1,19 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles — Nosy Questions · editorial dark (strione.com language) */
 
-html,
-body {
-  height: 100%;
+:root {
+  --bg: oklch(0.07 0.003 60);
+  --bg-soft: oklch(0.12 0.004 60);
+  --bg-card: oklch(0.13 0.005 60);
+  --fg: oklch(0.96 0 0);
+  --muted: oklch(0.62 0.01 60);
+  --dim: oklch(0.40 0.01 60);
+  --line: oklch(0.22 0.005 60);
+  --line-soft: oklch(0.17 0.005 60);
+  --accent: oklch(0.72 0.15 45);
+
+  --display: "Geist", -apple-system, "Segoe UI", sans-serif;
+  --sans: "Geist", -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --pad-x: clamp(1.25rem, 5vw, 4rem);
+  --max-w: 1400px;
+  --grid-line: rgba(255, 255, 255, 0.035);
 }
 
-body {
-  background: #303030;
-  min-width: 960px;
+:root.light {
+  --grid-line: rgba(0, 0, 0, 0.05);
+  --bg: oklch(0.97 0.004 80);
+  --bg-soft: oklch(0.93 0.004 80);
+  --bg-card: oklch(0.99 0.003 80);
+  --fg: oklch(0.21 0.01 60);
+  --muted: oklch(0.46 0.02 60);
+  --dim: oklch(0.62 0.02 60);
+  --line: oklch(0.84 0.008 70);
+  --line-soft: oklch(0.90 0.006 70);
+  --accent: oklch(0.58 0.18 42);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: #FFF;
+  padding: 0;
 }
 
-
-.mat-card-actions {
-  text-align: right !important;
+html {
+  -webkit-tap-highlight-color: transparent;
 }
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Parallax decorative background — AIMA-style grid + subtle glow */
+.bg-parallax {
+  position: fixed;
+  inset: -10% -5%;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px;
+  background-position: center, center;
+  will-change: transform;
+  transform: translate3d(0, calc(var(--scroll-y, 0px) * -0.12), 0);
+}
+
+/* Mono uppercase label — the strione "eyebrow" */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pu { animation: fadeUp 0.3s ease both; }

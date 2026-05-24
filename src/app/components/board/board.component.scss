@@ -1,4 +1,138 @@
-.container {
-    padding: 20px;
-    text-align: center;
+.game {
+  position: relative;
+  padding: clamp(1.75rem, 4vw, 3rem) var(--pad-x) 4rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.game-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--fg);
+    margin-bottom: 4px;
+  }
+}
+
+.seen-txt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.reset-btn {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 8px 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s ease, border-color 0.15s ease;
+
+  &:hover { color: var(--fg); border-color: var(--accent); }
+}
+
+.progress {
+  height: 2px;
+  background: var(--line-soft);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.hint {
+  text-align: center;
+  color: var(--dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  transition: opacity 0.25s ease;
+  opacity: 1;
+}
+
+@media (min-width: 480px) {
+  .card-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .card-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .card-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+.card-grid.flip-reset {
+  opacity: 0;
+}
+
+.completed {
+  text-align: center;
+  margin-top: 40px;
+  padding: 32px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-top: 2px solid var(--accent);
+
+  .emoji { font-size: 32px; margin-bottom: 10px; }
+
+  .done-title {
+    font-family: var(--display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 1.3rem;
+    color: var(--fg);
+    margin-bottom: 6px;
+  }
+
+  .done-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+}
+
+.again-btn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 0;
+  padding: 11px 28px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+
+  &:hover { filter: brightness(1.1); }
 }
